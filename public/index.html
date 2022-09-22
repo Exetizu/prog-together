@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e6e6e6;
+        }
+        #editor {
+            position: relative;
+            width: 50vw;
+            height: calc(100vh - 50px);
+        }
+        #title{
+            height: 50px;
+            width: 100vw;
+            background-color: rgb(102, 53, 148);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe{
+            width: 50vw;
+            height: calc(100vh - 50px);
+            border: none;
+        }
+        #main{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="title">
+        <h1 style="margin: 0px; margin-bottom: 5px;">Programowanie</h1>
+    </div>
+    <div id="main">
+        <div id="editor"></div>
+        <iframe src=""></iframe>
+    </div>
+
+    <script src="ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="ace/theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
