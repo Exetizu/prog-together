@@ -5,14 +5,14 @@
             socket.on("new-client-append",(code)=>{
                 console.log("abc");
                 editor.getSession().setValue(code.code)
-                document.getElementsByTagName("iframe")[0].src = "data:text/html;charset=utf-8," + encodeURI(editor.getSession().getValue())
+                document.getElementsByTagName("iframe")[0].srcdoc = editor.getSession().getValue()
             })
             console.log("User connected");
             document.getElementById("editor").addEventListener("keyup",()=>{
                 socket.emit('codeSend',{
                     code: editor.getSession().getValue()
                 })
-                document.getElementsByTagName("iframe")[0].src = "data:text/html;charset=utf-8," + encodeURI(editor.getSession().getValue())
+                document.getElementsByTagName("iframe")[0].srcdoc = editor.getSession().getValue()
             })
         })
         socket.on('disconnect',()=>{
@@ -20,7 +20,7 @@
         });
         socket.on("codeReceive",(code)=>{
             editor.getSession().setValue(code.code)
-            document.getElementsByTagName("iframe")[0].src = "data:text/html;charset=utf-8," + encodeURI(editor.getSession().getValue())
+            document.getElementsByTagName("iframe")[0].srcdoc = editor.getSession().getValue()
 
         })
 
