@@ -3,17 +3,17 @@ const http = require('http')
 const express = require('express');
 const socketIO = require('socket.io');
 const publicPath = path.join(__dirname,"/../public");
+const port = process.env.PORT || 80
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
 app.use(express.static(publicPath));
-server.listen(80,()=>{
-    console.log("Server start on port:80");
+server.listen(port,()=>{
+    console.log(`Server start on port:${port}`);
 })
 var codesave = ""
 io.on('connection',(socket)=>{
     socket.on('new-client-append',(code)=>{
-        console.log("a")
         socket.emit('new-client-append', {code: codesave});
     })
     
